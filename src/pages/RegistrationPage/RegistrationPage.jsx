@@ -33,7 +33,6 @@ const RegistrationPage = () => {
   });
 
   const handleSubmit = (values, options) => {
-    console.log("Login form values:", values);
     dispatch(registration(values));
 
     options.resetForm();
