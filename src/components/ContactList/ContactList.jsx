@@ -1,10 +1,17 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import { selectFilteredContacts } from "../../redux/filtersSlice";
 import styles from "./ContactList.module.css";
+import { useEffect } from "react";
+import { fetchContacts } from "../../redux/contactsOps";
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   if (filteredContacts.length === 0) {
     return <p>Немає контактів для відображення.</p>;

@@ -4,6 +4,7 @@ import {
   deleteContactThunk,
   fetchContacts,
 } from "./contactsOps";
+import { logout } from "./auth/operations";
 
 const initialState = {
   contacts: {
@@ -31,6 +32,7 @@ const slice = createSlice({
       .addCase(addContactThunk.fulfilled, (state, action) => {
         state.contacts.items.push(action.payload);
       })
+      .addCase(logout.fulfilled, () => initialState)
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
