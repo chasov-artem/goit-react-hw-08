@@ -10,8 +10,8 @@ import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
-import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
   const navigate = useNavigate();

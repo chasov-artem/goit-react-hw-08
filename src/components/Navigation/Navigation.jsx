@@ -2,9 +2,11 @@ import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/auth/operations";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.activeLink);
@@ -28,7 +30,11 @@ const Navigation = () => {
         </>
       )}
       {isLoggedIn && (
-        <button className={s.button} type="button">
+        <button
+          onClick={() => dispatch(logout())}
+          className={s.button}
+          type="button"
+        >
           Exit
         </button>
       )}
