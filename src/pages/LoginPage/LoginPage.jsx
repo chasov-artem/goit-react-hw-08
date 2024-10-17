@@ -21,6 +21,7 @@ const LoginPage = () => {
       .required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
+      .max(33, "Password must not exceed 33 characters")
       .required("Password is required"),
   });
 
