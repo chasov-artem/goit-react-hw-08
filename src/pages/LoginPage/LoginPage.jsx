@@ -7,9 +7,12 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Formik, Form, Field } from "formik";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { login } from "../../redux/auth/operations";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     email: "",
     password: "",
@@ -27,6 +30,7 @@ const LoginPage = () => {
 
   const handleSubmit = (values, options) => {
     console.log("Login form values:", values);
+    dispatch(login(values));
     options.resetForm();
   };
 

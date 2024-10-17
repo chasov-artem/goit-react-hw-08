@@ -42,3 +42,8 @@
   color: #ffd700;
   border-bottom: 3px solid #ffd700;
 }
+
+.button {
+  border: 1px;
+  background-color: blue;
+}
