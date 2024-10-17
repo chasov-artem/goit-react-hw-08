@@ -25,9 +25,9 @@ const LoginPage = () => {
       .required("Password is required"),
   });
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values, options) => {
     console.log("Login form values:", values);
-    setSubmitting(false);
+    options.resetForm();
   };
 
   return (

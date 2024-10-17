@@ -7,9 +7,12 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Formik, Form, Field } from "formik";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { registration } from "../../redux/auth/operations";
 
 const RegistrationPage = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     name: "",
     email: "",
@@ -29,9 +32,11 @@ const RegistrationPage = () => {
       .required("Password is required"),
   });
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values, options) => {
     console.log("Login form values:", values);
-    setSubmitting(false);
+    dispatch(registration(values));
+
+    options.resetForm();
   };
 
   return (
@@ -60,14 +65,14 @@ const RegistrationPage = () => {
                 margin="normal"
                 fullWidth
                 id="name"
-                label="Email Address"
+                label="Name"
                 name="name"
                 autoComplete="name"
                 autoFocus
-                value={values.email}
+                value={values.name}
                 onChange={handleChange}
-                error={touched.email && Boolean(errors.email)}
-                helperText={touched.email && errors.email}
+                error={touched.name && Boolean(errors.email)}
+                helperText={touched.name && errors.email}
               />
               <Field
                 as={TextField}
@@ -77,7 +82,6 @@ const RegistrationPage = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
                 value={values.email}
                 onChange={handleChange}
                 error={touched.email && Boolean(errors.email)}
