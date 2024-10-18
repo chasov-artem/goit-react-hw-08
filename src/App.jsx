@@ -1,7 +1,5 @@
 import "./App.css";
-// import ContactList from "./components/ContactList/ContactList";
-// import ContactForm from "./components/ContactForm/ContactForm";
-// import SearchBox from "./components/SearchBox/SearchBox";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import { fetchContacts } from "./redux/contactsOps";
@@ -16,10 +14,10 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import { PrivateRoute } from "./components/PrivatRoute/PrivateRoute";
+import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
 
 const App = () => {
-  // const isLoading = useSelector(selectIsLoading);
-  // const isError = useSelector(selectIsError);
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   // useEffect(() => {
@@ -36,21 +34,33 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="registration" element={<RegistrationPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="registration"
+            element={
+              <RestrictedRoute
+                component={<RegistrationPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-
-      {/* <div className="container">
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <SearchBox />
-        {isLoading && <h2>Loading...</h2>}
-        {isError && <h2>Error: {isError}</h2>}
-        <ContactList />
-      </div> */}
     </>
   );
 };

@@ -10,11 +10,9 @@ import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialValues = {
     email: "",
@@ -36,7 +34,6 @@ const LoginPage = () => {
       .unwrap()
       .then((res) => {
         toast.success(`Welcome ${res.user.name}!`);
-        navigate("/");
       })
       .catch(() => {
         toast.error("Invalid credentials");
