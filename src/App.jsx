@@ -15,12 +15,13 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 import { refresh } from "./redux/auth/operations";
+import { selectIsRefreshing } from "./redux/auth/selectors";
 
 const App = () => {
   // const isLoading = useSelector(selectIsLoading);
   // const isError = useSelector(selectIsError);
   const dispatch = useDispatch();
-
+  const isRefreshing = useSelector(selectIsRefreshing);
   // useEffect(() => {
   //   dispatch(fetchContacts());
   // }, [dispatch]);
@@ -29,8 +30,8 @@ const App = () => {
     dispatch(refresh());
   }, [dispatch]);
 
-  return (
-    <div>
+  return isRefreshing ? null : (
+    <>
       <Toaster position="top-center" />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -41,6 +42,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       {/* <div className="container">
         <h1>Phonebook</h1>
         <ContactForm />
@@ -49,7 +51,7 @@ const App = () => {
         {isError && <h2>Error: {isError}</h2>}
         <ContactList />
       </div> */}
-    </div>
+    </>
   );
 };
 
