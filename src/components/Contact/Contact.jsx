@@ -3,14 +3,23 @@ import { useState } from "react";
 import styles from "./Contact.module.css";
 import { IoAccessibility, IoCall } from "react-icons/io5";
 import { deleteContactThunk } from "../../redux/contacts/contactsOps";
+import toast from "react-hot-toast";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = () => {
-    dispatch(deleteContactThunk(id));
-    setIsModalOpen(false);
+    dispatch(deleteContactThunk(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Contact delete successfully!");
+        setIsModalOpen(false);
+      })
+      .catch(() => {
+        toast.error("Failed to delete contact! Try it later!");
+        setIsModalOpen(false);
+      });
   };
 
   return (

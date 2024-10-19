@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import styles from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContactThunk } from "../../redux/contacts/contactsOps";
+import toast from "react-hot-toast";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,7 +26,14 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContactThunk(values));
+    dispatch(addContactThunk(values))
+      .unwrap()
+      .then(() => {
+        toast.success("New contact added successfully!");
+      })
+      .catch(() => {
+        toast.error("Failed to add new contact! Try it later!");
+      });
     actions.resetForm();
   };
 
