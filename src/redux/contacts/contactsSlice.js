@@ -3,6 +3,7 @@ import {
   addContactThunk,
   deleteContactThunk,
   fetchContacts,
+  updateContactThunk,
 } from "./contactsOps";
 import { logout } from "../auth/operations";
 
@@ -33,6 +34,14 @@ const slice = createSlice({
         state.contacts.items.push(action.payload);
       })
       .addCase(logout.fulfilled, () => initialState)
+      .addCase(updateContactThunk.fulfilled, (state, action) => {
+        const index = state.contacts.items.findIndex(
+          (contact) => contact.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.contacts.items[index] = action.payload;
+        }
+      })
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
