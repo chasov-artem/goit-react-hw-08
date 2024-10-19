@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const Navigation = () => {
   const dispatch = useDispatch();

@@ -1,9 +1,6 @@
 import "./App.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-// import { fetchContacts } from "./redux/contactsOps";
-// import { selectIsError, selectIsLoading } from "./redux/contactsSlice";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
@@ -20,9 +17,6 @@ import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
 const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(refresh());

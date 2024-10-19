@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import styles from "./Contact.module.css";
 import { IoAccessibility, IoCall } from "react-icons/io5";
-import { deleteContactThunk } from "../../redux/contactsOps";
+import { deleteContactThunk } from "../../redux/contacts/contactsOps";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();

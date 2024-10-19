@@ -4,7 +4,7 @@ import {
   deleteContactThunk,
   fetchContacts,
 } from "./contactsOps";
-import { logout } from "./auth/operations";
+import { logout } from "../auth/operations";
 
 const initialState = {
   contacts: {
@@ -67,9 +67,5 @@ const slice = createSlice({
       );
   },
 });
-
-export const selectContacts = (state) => state.contacts.contacts.items;
-export const selectIsLoading = (state) => state.contacts.contacts.isLoading;
-export const selectIsError = (state) => state.contacts.contacts.isError;
 
 export const contactsReducer = slice.reducer;

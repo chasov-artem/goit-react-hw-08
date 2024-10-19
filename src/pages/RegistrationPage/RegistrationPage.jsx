@@ -9,7 +9,7 @@ import {
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import { registration } from "../../redux/auth/operations";
+import { register } from "../../redux/auth/operations";
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const RegistrationPage = () => {
   });
 
   const handleSubmit = (values, options) => {
-    dispatch(registration(values));
+    dispatch(register(values));
 
     options.resetForm();
   };
