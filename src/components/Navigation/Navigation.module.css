@@ -1,63 +1,26 @@
-.linksWrapper {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
 .link {
-  color: #f9e7e7;
-  font-weight: 600;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.link::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background-color: #f94144;
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.link:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.link:hover {
-  color: #f94144;
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
+  margin-right: 15px;
+  font-size: 18px;
+  color: #1976d2;
+  transition: color 0.3s;
 }
 
 .activeLink {
-  color: #ffd700;
-  border-bottom: 3px solid #ffd700;
+  font-weight: bold;
+  color: #0d47a1;
 }
 
 .button {
-  border: 1px;
-  background-color: #4a90e2;
+  background-color: #1976d2;
   color: white;
-  padding: 6px 20px;
+  border: none;
+  padding: 6px 12px;
   border-radius: 4px;
-  font-size: bold;
-  font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: 1px;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: #287fe2;
+  background-color: #1565c0;
 }

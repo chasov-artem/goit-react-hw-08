@@ -1,21 +1,13 @@
 .headerWrapper {
-  padding: 20px 40px 20px 10px;
-
-  text-align: center;
-  background: linear-gradient(135deg, #2a8f7b, #1f6f5b);
-  color: #ffffff;
-  font-size: 22px;
-  font-weight: bold;
-  border-bottom: 2px solid #e7e9fc;
-  box-shadow: 0 5px 8px 0 rgba(46, 47, 66, 0.08),
-    0 5px 1px 0 rgba(46, 47, 66, 0.16), 0 6px 8px 5px rgba(46, 47, 66, 0.08);
-
-  margin: auto;
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   display: flex;
   justify-content: space-between;
-  max-width: 100%;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.headerWrapper div {
+  font-size: 18px;
+  color: #333;
 }

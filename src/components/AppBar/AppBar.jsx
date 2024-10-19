@@ -8,7 +8,6 @@ const AppBar = () => {
 
   return (
     <div className={s.headerWrapper}>
-      <div>Auth</div>
       {isLoggedIn && <div>Welcome, {user.name}</div>}
       <Navigation />
     </div>

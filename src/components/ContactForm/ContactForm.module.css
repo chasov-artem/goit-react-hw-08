@@ -1,41 +1,35 @@
 .formLabel {
   display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
   color: #333;
 }
 
 .inputField {
-  width: 95%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  transition: border-color 0.3s ease-in-out;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.inputField:focus {
-  border-color: #1e90ff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
-}
 .errorMessage {
   color: red;
   font-size: 12px;
+  margin-top: -8px;
 }
 
 .submitButton {
-  background-color: #4a90e2;
+  background-color: #388e3c;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 4px;
-  padding: 10px 15px;
   cursor: pointer;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
+  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .submitButton:hover {
-  background-color: #357abd;
+  background-color: #2e7d32;
 }
