@@ -45,7 +45,7 @@
 
 .button {
   border: 1px;
-  background-color: rgba(57, 57, 238, 0.671);
+  background-color: #4a90e2;
   color: white;
   padding: 6px 20px;
   border-radius: 4px;
@@ -55,8 +55,9 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 1px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-left: 5px;
 }
 
 .button:hover {
-  background-color: rgba(30, 30, 219, 0.671);
+  background-color: #287fe2;
 }
