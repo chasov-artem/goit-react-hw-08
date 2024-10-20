@@ -2,13 +2,14 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import { IoAccessibility, IoCall } from "react-icons/io5";
+
+import toast from "react-hot-toast";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import {
   deleteContactThunk,
   updateContactThunk,
 } from "../../redux/contacts/operations";
-import toast from "react-hot-toast";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();

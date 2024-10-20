@@ -11,8 +11,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import { Toaster } from "react-hot-toast";
 import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import { PrivateRoute } from "./components/PrivatRoute/PrivateRoute";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
+import { PrivateRoute } from "./components/PrivatRoute/PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();

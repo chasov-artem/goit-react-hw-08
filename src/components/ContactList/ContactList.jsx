@@ -2,11 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import styles from "./ContactList.module.css";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contacts/operations";
-import { selectFilteredContacts } from "../../redux/filters/slice";
+
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { slideInFromRight } from "../../motion/motion";
+import { selectFilteredContacts } from "../../redux/filters/slice";
+import { fetchContacts } from "../../redux/contacts/operations";
+
+
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
