@@ -7,7 +7,7 @@ body {
 
 body::before {
   content: "";
-  background-image: url("https://img.freepik.com/free-photo/smartphone-with-notebook-coffee-table_23-2148036911.jpg?t=st=1729452447~exp=1729456047~hmac=e940f3f4851de46a3a3d8c6029b73578e8ce39cc34d39d2d403c4a6f6201f031&w=1060");
+  background-image: url("./assets/image/phonebook_bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
