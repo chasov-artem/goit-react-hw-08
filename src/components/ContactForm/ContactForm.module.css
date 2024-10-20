@@ -9,7 +9,7 @@
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 96.5%;
   margin-bottom: 10px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .submitButton {
-  background-color: #388e3c;
+  background-color: #1976d2;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -31,5 +31,5 @@
 }
 
 .submitButton:hover {
-  background-color: #2e7d32;
+  background-color: #1565c0;
 }
