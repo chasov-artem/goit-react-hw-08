@@ -4,6 +4,9 @@ import styles from "./ContactList.module.css";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/contactsOps";
 import { selectFilteredContacts } from "../../redux/filters/filtersSlice";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { slideInFromRight } from "../../motion/motion";
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
@@ -19,11 +22,19 @@ const ContactList = () => {
 
   return (
     <ul className={styles.contactList}>
-      {filteredContacts.map((item) => (
-        <li key={item.id} className={styles.contactItem}>
-          <Contact name={item.name} number={item.number} id={item.id} />
-        </li>
-      ))}
+      <AnimatePresence>
+        {filteredContacts.map((item, idx) => (
+          <motion.li
+            initial="hidden"
+            animate="visible"
+            variants={slideInFromRight(idx * 0.4)}
+            key={item.id}
+            className={styles.contactItem}
+          >
+            <Contact name={item.name} number={item.number} id={item.id} />
+          </motion.li>
+        ))}
+      </AnimatePresence>
     </ul>
   );
 };

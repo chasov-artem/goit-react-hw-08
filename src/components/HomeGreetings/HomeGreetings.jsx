@@ -2,6 +2,8 @@ import { useState } from "react";
 import s from "./HomeGreetings.module.css";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import { slideInFromLeft } from "../../motion/motion";
+import { motion } from "framer-motion";
 
 const quotes = [
   "Always believe in yourself!",
@@ -24,13 +26,13 @@ const HomeGreetings = () => {
   const getGreeting = () => {
     if (hour < 12) {
       return isLoggedIn
-        ? `Good Morning ${user.name}!`
+        ? `Good Morning, ${user.name}!`
         : `Good Morning, friend!`;
     } else if (hour < 18) {
-      return isLoggedIn ? `Good Day ${user.name}!` : `Good Day, friend!`;
+      return isLoggedIn ? `Good Day, ${user.name}!` : `Good Day, friend!`;
     } else {
       return isLoggedIn
-        ? `Good Evening ${user.name}!`
+        ? `Good Evening, ${user.name}!`
         : `Good Evening, friend!`;
     }
   };
@@ -41,7 +43,12 @@ const HomeGreetings = () => {
   };
 
   return (
-    <div className={s.homePage}>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={slideInFromLeft()}
+      className={s.homePage}
+    >
       <h1>{getGreeting()} Welcome to the Contact Book app!</h1>
       <p>
         This app helps you store and manage your contacts easily and convenient.
@@ -50,7 +57,7 @@ const HomeGreetings = () => {
         Get an inspirational quote
       </button>
       {quote && <p className={s.quote}>{quote}</p>}
-    </div>
+    </motion.div>
   );
 };
 

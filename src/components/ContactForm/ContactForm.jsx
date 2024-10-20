@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addContactThunk } from "../../redux/contacts/contactsOps";
 import toast from "react-hot-toast";
 
+
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short! Min 3 symbols!")
@@ -44,41 +45,42 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
         validationSchema={FeedbackSchema}
       >
-        <Form>
-          <label htmlFor="name" className={styles.formLabel}>
-            Name:
-            <Field
-              id={nanoid()}
-              type="text"
+          <Form>
+            <label htmlFor="name" className={styles.formLabel}>
+              Name:
+              <Field
+                id={nanoid()}
+                type="text"
+                name="name"
+                className={styles.inputField}
+              />
+            </label>
+            <ErrorMessage
               name="name"
-              className={styles.inputField}
+              component="span"
+              className={styles.errorMessage}
             />
-          </label>
-          <ErrorMessage
-            name="name"
-            component="span"
-            className={styles.errorMessage}
-          />
 
-          <label htmlFor="number" className={styles.formLabel}>
-            Number:
-            <Field
-              id={nanoid()}
-              type="text"
+            <label htmlFor="number" className={styles.formLabel}>
+              Number:
+              <Field
+                id={nanoid()}
+                type="text"
+                name="number"
+                className={styles.inputField}
+              />
+            </label>
+            <ErrorMessage
               name="number"
-              className={styles.inputField}
+              component="span"
+              className={styles.errorMessage}
             />
-          </label>
-          <ErrorMessage
-            name="number"
-            component="span"
-            className={styles.errorMessage}
-          />
 
-          <button type="submit" className={styles.submitButton}>
-            Submit
-          </button>
-        </Form>
+            <button type="submit" className={styles.submitButton}>
+              Submit
+            </button>
+          </Form>
+        
       </Formik>
     </div>
   );

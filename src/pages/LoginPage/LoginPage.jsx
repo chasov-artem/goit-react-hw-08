@@ -6,11 +6,13 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import { Formik, Form, Field } from "formik";
+import { Formik, Field, Form } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { slideInFromRight } from "../../motion/motion";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -52,7 +54,7 @@ const LoginPage = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h3">
           Sign in
         </Typography>
         <Formik
@@ -99,6 +101,29 @@ const LoginPage = () => {
               >
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
+              <motion.h2
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight()}
+              >
+                Account Login
+              </motion.h2>
+              <motion.h3
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight(1)}
+              >
+                Enter your details to access your personal contact collection.
+              </motion.h3>
+              <motion.p
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight(1.2)}
+              >
+                If you dont have an account yet, you can sign up by clicking the
+                link below. Get back access to and manage your contacts with
+                ease!
+              </motion.p>
             </Form>
           )}
         </Formik>

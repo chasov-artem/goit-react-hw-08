@@ -6,10 +6,12 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import { Formik, Form, Field } from "formik";
+import { Formik, Field, Form } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
+import { motion } from "framer-motion";
+import { slideInFromBot, slideInFromRight } from "../../motion/motion";
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -49,7 +51,7 @@ const RegistrationPage = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h3">
           Sign up
         </Typography>
         <Formik
@@ -58,7 +60,11 @@ const RegistrationPage = () => {
           onSubmit={handleSubmit}
         >
           {({ isSubmitting, handleChange, values, errors, touched }) => (
-            <Form>
+            <Form
+              initial="hidden"
+              animate="visible"
+              variants={slideInFromBot()}
+            >
               <Field
                 as={TextField}
                 margin="normal"
@@ -110,6 +116,30 @@ const RegistrationPage = () => {
               >
                 {isSubmitting ? "Signing up..." : "Sign up"}
               </Button>
+              <motion.h2
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight()}
+              >
+                Create your account
+              </motion.h2>
+              <motion.h3
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight(1)}
+              >
+                Join our Contact Book app to keep all your important contacts in
+                one place.
+              </motion.h3>
+              <motion.p
+                initial="hidden"
+                animate="visible"
+                variants={slideInFromRight(1.2)}
+              >
+                Registration will allow you to have access to your personal
+                collection of contacts from any device. Just fill out the form
+                below and start enjoying all the benefits of our service!
+              </motion.p>
             </Form>
           )}
         </Formik>
