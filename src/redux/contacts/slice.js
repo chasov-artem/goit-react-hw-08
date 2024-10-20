@@ -4,7 +4,7 @@ import {
   deleteContactThunk,
   fetchContacts,
   updateContactThunk,
-} from "./contactsOps";
+} from "./operations";
 import { logout } from "../auth/operations";
 
 const initialState = {

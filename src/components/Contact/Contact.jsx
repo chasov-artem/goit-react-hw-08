@@ -5,7 +5,7 @@ import { IoAccessibility, IoCall } from "react-icons/io5";
 import {
   deleteContactThunk,
   updateContactThunk,
-} from "../../redux/contacts/contactsOps";
+} from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";

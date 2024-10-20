@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import ContactList from "../../components/ContactList/ContactList";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
-import { selectIsError, selectIsLoading } from "../../redux/contacts/contactsSelectors";
+import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
 
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
