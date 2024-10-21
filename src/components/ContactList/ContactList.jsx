@@ -6,10 +6,9 @@ import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { slideInFromRight } from "../../motion/motion";
-import { selectFilteredContacts } from "../../redux/filters/slice";
+
 import { fetchContacts } from "../../redux/contacts/operations";
-
-
+import { selectFilteredContacts } from "../../redux/filters/slice";
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);

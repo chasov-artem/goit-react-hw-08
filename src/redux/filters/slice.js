@@ -2,11 +2,8 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { selectContacts } from "../contacts/selectors";
 import { selectFilters } from "./selectors";
 
-
 const initialState = {
-  filters: {
-    name: "",
-  },
+  name: "",
 };
 
 const sliceFilter = createSlice({
@@ -14,7 +11,7 @@ const sliceFilter = createSlice({
   initialState,
   reducers: {
     changeSearch: (state, action) => {
-      state.filters.name = action.payload;
+      state.name = action.payload;
     },
   },
 });
