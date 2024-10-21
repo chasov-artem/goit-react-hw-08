@@ -13,6 +13,7 @@ import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
 import { PrivateRoute } from "./components/PrivatRoute/PrivateRoute";
+import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const App = () => {
 
   return isRefreshing ? null : (
     <>
+      <AnimatedBackground />
       <Toaster position="top-center" />
       <Routes>
         <Route path="/" element={<Layout />}>
